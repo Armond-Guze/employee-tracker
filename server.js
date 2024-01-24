@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
-const mysql = require('mysql2');
+// const fs = require("fs");
+// const mysql = require('mysql2');
 
 const menu = () => {
     inquirer
@@ -19,3 +20,37 @@ const menu = () => {
           ]
     })
 }
+
+const questions = () => {
+    inquirer
+      .prompt([
+        
+        {
+          name: 'first_name',
+          type: 'input',
+          message: 'What is the employee\'s first name?'
+        },
+        {
+          name: 'last_name',
+          type: 'input',
+          message: 'What is the employee\'s last name?'
+        },
+        {
+          name: 'role_id',
+          type: 'input',
+          message: 'What is the employee\'s role id?'
+        },
+        {
+          name: 'manager_id',
+          type: 'input',
+          message: 'What is the employee\'s manager id?'
+        }
+      ])
+    }
+
+    inquirer.prompt(questions).then((responses) => {
+        console.log("Generated logo.svg");
+        console.log(responses);
+    })
+menu()
+questions()
