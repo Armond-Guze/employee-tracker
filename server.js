@@ -20,6 +20,39 @@ const mainMenu = () => {
         'Quit'
       ]
     })
+    .then((answer) => {
+      switch (answer.action) {
+        case 'View all employees':
+          viewEmployees();
+          break;
+        case 'View all roles':
+          viewRoles();
+          break;
+        case 'View all departments':
+            viewDepartments();
+            break;
+          case 'Add employee':
+            addEmployee();
+            break;
+          case 'Add role':
+            addRole();
+            break;
+          case 'Add department':
+            addDepartment();
+            break;
+          case 'Update employee role':
+            updateEmployeeRole();
+            break;
+          case 'Quit':
+            connection.end();
+            break;
+          default:
+            console.log('Invalid selection.');
+            mainMenu();
+            break;
+        }
+      });
+  };
   
   // Shows user the current employees 
   const viewEmployees = () => {
